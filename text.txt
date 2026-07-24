@@ -1,0 +1,7 @@
+// problem of my project
+not finding the connection to preload.js
+
+Porblem : import { contextBridge, ipcRenderer } from 'electron';
+
+solution : const { contextBridge, ipcRenderer } = require("electron");
+i need to use the old js syntax becaouse electron did not know the new syntax
