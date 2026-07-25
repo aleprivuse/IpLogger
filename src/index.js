@@ -19,9 +19,9 @@ function createWindow() {
     const win = new BrowserWindow({
         width: 600,
         height: 400,
-        webPreferences: { preload: "/home/maintest/Iplogger/preload.js"}
+        webPreferences: { preload: path.join(__dirname, "preload.js")}
     })
-    win.loadFile("Frontend/Index.html")
+    win.loadFile(path.join(__dirname,"Frontend/Index.html"))
 }
 app.whenReady().then(createWindow)
 
