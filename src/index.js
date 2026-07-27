@@ -3,15 +3,21 @@ import {app, BrowserWindow, ipcMain} from 'electron';
 import {insertDb,updateDb,seeLogs,deleteDb,orderByTimestamps,orderByAttemps} from './DataBase/database.js';
 import path from "path";
 import {fileURLToPath}  from "url";
-import fs from 'fs';
+import fs from 'fs/promises';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+async function readLogs(){
+    const data = await fs.readFile("/var/log/auth.log", 'utf-8', async function(){
+        console.log(data)
+    }) 
+}
+
+// get the data when the app start
 ipcMain.handle(`Get-logs` , () =>{
     return seeLogs()
 })
-
 
 //Running the server
 app.disableHardwareAcceleration();

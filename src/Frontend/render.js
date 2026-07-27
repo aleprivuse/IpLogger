@@ -20,7 +20,7 @@ function startMonitoring(){
     }
     
 }
-
+// stop monitorting
 function stopMonitoring(){
     clearInterval(interval)
     document.getElementById("statusChecker").textContent = "Status: NOT RUNNING"
