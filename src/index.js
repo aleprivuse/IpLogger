@@ -29,9 +29,9 @@ async function insertIntoDatabase(){
 }
 
 // read the logs and transforthem in objects
-//var/log/auth.log/
+
 async function readLogs(){
-    const data = await fs.readFile("/home/maintest/Iplogger/test.authlog.txt", 'utf-8')
+    const data = await fs.readFile("/var/log/auth.log", 'utf-8')
     const lines = data.split("\n")
     const logs = []
     for(let i = 0; i < lines.length; i++){

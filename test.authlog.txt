@@ -1,3 +1,0 @@
-2026-07-27T09:32:22.101649+00:00 Ubuntutest sshd-session[14237]: Failed password for maintest from 192.168.1.199 port 49675 ssh2
-2026-07-27T09:33:10.000000+00:00 Ubuntutest sshd-session[14238]: Failed password for admin from 10.0.0.5 port 5555 ssh2
-2026-07-27T09:34:55.000000+00:00 Ubuntutest sshd-session[14239]: Failed password for root from 8.8.8.8 port 2222 ssh2
