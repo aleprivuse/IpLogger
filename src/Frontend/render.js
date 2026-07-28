@@ -10,7 +10,7 @@ stopBtn.addEventListener("click",stopMonitoring )
 
 // start the monitoring
 function startMonitoring(){
-    if(running == false){
+    if(running === false){
         interval = setInterval(() => {console.log("checking")},3000)    
         running = true
         document.getElementById("statusChecker").textContent = "Status: RUNNING"
@@ -36,17 +36,17 @@ async function loadLogs() {
         const ip = document.createElement("td");
         const username = document.createElement("td");
         const attempts = document.createElement("td");
-        const timestamps = document.createElement("td");
+        const timestaps = document.createElement("td");
 
         ip.textContent = log.ip;
         username.textContent = log.username;
         attempts.textContent = log.attemps;
-        timestamps.textContent = log.timestaps;
+        timestaps.textContent = log.timestaps;
 
         row.appendChild(ip);
         row.appendChild(username);
         row.appendChild(attempts);
-        row.appendChild(timestamps);
+        row.appendChild(timestaps);
 
         tableBody.appendChild(row);
     });

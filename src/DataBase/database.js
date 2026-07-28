@@ -20,12 +20,21 @@ db.prepare(
 ).run(); 
 
 // its to insert file, prepare = its going to get used alot 
-function insertDb(ip, username, attemps, timestaps){
+function insertDb(data){
 const insertDb = db.prepare(`
     INSERT INTO ssh_logs(ip, username, attemps, timestaps)
     VALUES (?,?,?,?)
     `)
-    insertDb.run(ip,username,attemps,timestaps)
+   
+    for (const attemps of data){
+        insertDb.run(
+            attemps.ip,
+            attemps.username,
+            attemps.attemps,
+            attemps.timestaps
+            
+        );
+    }
 }
 
 //its gonna update the files

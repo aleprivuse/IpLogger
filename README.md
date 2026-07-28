@@ -59,3 +59,5 @@ Through this project, I am learning how security tools can interact with system 
 - Communication between application layers
 
 The project combines cybersecurity concepts with software development by creating a practical tool for analyzing authentication-related events.
+
+
