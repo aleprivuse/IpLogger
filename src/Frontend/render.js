@@ -1,10 +1,13 @@
 const startBtn = document.getElementById("startBtn")
 const stopBtn = document.getElementById("stopBtn")
+const deleteBtn = document.getElementById("deleteBtn")
 const tableBody = document.getElementById("Information");
+
 
 let interval;
 let running = false;
 
+deleteBtn.addEventListener("click",deletelogs )
 startBtn.addEventListener("click",startMonitoring )
 stopBtn.addEventListener("click",stopMonitoring )
 
@@ -26,11 +29,27 @@ function stopMonitoring(){
     document.getElementById("statusChecker").textContent = "Status: NOT RUNNING"
 }
 
+// delete logs
+async function deletelogs(){
+    const result = window.confirm("Are you sure you want to delete the Logs? ")
+    if(result === true){
+        console.log("started")
+        await window.deleteAllLogs.deleteLogs()
+        console.log("finished")
+        loadLogs()
+        console.log("done")
+    }
+    else{
+        
+    }
+}
+
 //loads the logs from the database into Rows
 async function loadLogs() {
     const logs = await window.sshLogs.getLogs();
- 
-    logs.forEach((log) => {
+    
+    tableBody.innerHTML = ""
+     logs.forEach((log) => {
         const row = document.createElement("tr");
 
         const ip = document.createElement("td");

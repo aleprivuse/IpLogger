@@ -56,7 +56,12 @@ const seeLogs = db.prepare(`
   }  
 
 // delete rows
-function deleteDb(id){
+function deleteDb(){
+    const deleteDb = db.prepare(`
+    DELETE FROM ssh_logs`) 
+    deleteDb.run()
+}
+async function deleteOneDb(id){
     const deleteDb = db.prepare(`
     DELETE FROM ssh_logs 
     WHERE id = ?`) 

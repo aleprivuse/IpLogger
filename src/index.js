@@ -5,8 +5,7 @@ import path from "path";
 import {fileURLToPath}  from "url";
 import fs from 'fs/promises';
 import { read } from 'fs';
-import { getDefaultAutoSelectFamilyAttemptTimeout } from 'net';
-import { time, timeStamp } from 'console';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,12 +23,10 @@ class newSshAttemps{
 // insert new function
 async function insertIntoDatabase(){
     const data = await readLogs()
-    console.log(data)
     insertDb(data)
 }
 
 // read the logs and transforthem in objects
-
 async function readLogs(){
     const data = await fs.readFile("/var/log/auth.log", 'utf-8')
     const lines = data.split("\n")
@@ -61,6 +58,11 @@ async function readLogs(){
 // get the data when the app start
 ipcMain.handle(`Get-logs` , () =>{
     return seeLogs()
+})
+
+// delete the data 
+ipcMain.handle(`delete-logs`,() =>{
+    return deleteDb()
 })
 
 //Running the server
