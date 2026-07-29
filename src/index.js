@@ -65,6 +65,11 @@ ipcMain.handle(`delete-logs`,() =>{
     return deleteDb()
 })
 
+// order by timestamp
+ipcMain.handle(`order-by-timestamp`, () => {
+    return orderByTimestamps()
+})
+
 //Running the server
 app.disableHardwareAcceleration();
 function createWindow() {

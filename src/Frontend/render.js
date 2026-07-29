@@ -1,28 +1,18 @@
-const startBtn = document.getElementById("startBtn")
 const stopBtn = document.getElementById("stopBtn")
 const deleteBtn = document.getElementById("deleteBtn")
+const refreshBtn = document.getElementById("RefreshBtn")
 const tableBody = document.getElementById("Information");
 
 
 let interval;
 let running = false;
 
+refreshBtn.addEventListener("click",refreshLogs)
 deleteBtn.addEventListener("click",deletelogs )
-startBtn.addEventListener("click",startMonitoring )
 stopBtn.addEventListener("click",stopMonitoring )
 
-// start the monitoring
-function startMonitoring(){
-    if(running === false){
-        interval = setInterval(() => {console.log("checking")},3000)    
-        running = true
-        document.getElementById("statusChecker").textContent = "Status: RUNNING"
-    }
-    else{
-        document.getElementById("statusChecker").textContent = "Status: RUNNING"
-    }
-    
-}
+
+
 // stop monitorting
 function stopMonitoring(){
     clearInterval(interval)
@@ -43,6 +33,13 @@ async function deletelogs(){
         
     }
 }
+
+//refresh 
+async function refreshLogs(){
+    loadLogs()
+}
+
+
 
 //loads the logs from the database into Rows
 async function loadLogs() {
@@ -72,3 +69,16 @@ async function loadLogs() {
 }
 
 loadLogs();
+
+
+
+/*
+if want to use it create an variable for timestamp btn as well
+
+async function OderByTimestamps(params) {
+    await window.oderbytimestamps.oderByTimestamps()
+    loadLogs()
+}
+
+
+*/

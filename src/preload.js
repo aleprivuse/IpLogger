@@ -10,3 +10,6 @@ contextBridge.exposeInMainWorld(`deleteAllLogs`, {
     deleteLogs : () => ipcRenderer.invoke(`delete-logs`)
 })
 
+contextBridge.exposeInMainWorld(`oderbytimestamps` , {
+    oderByTimestamps : () => ipcRenderer.invoke(`order-by-timestamp`)
+})
